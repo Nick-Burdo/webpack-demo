@@ -1,6 +1,6 @@
 ## Keys
 
-1. Task: Analysis of the article ["A Beginner’s Guide to Webpack 2 and Module Bundling"](https://www.sitepoint.com/beginners-guide-to-webpack-2-and-module-bundling/) and ability to use `webpack` to build my projects.   
+1. Task: Analysis of the article ["A Beginner’s Guide to Webpack 2 and Module Bundling"](https://www.sitepoint.com/beginners-guide-to-webpack-2-and-module-bundling/) and check ability to use `webpack` to build my projects.   
 
 2. I use `yarn` instead `npm` (see [yarn](https://yarnpkg.com/lang/en/))
 
