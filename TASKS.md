@@ -1,6 +1,11 @@
 ### Finish article analysis
 
 https://www.sitepoint.com/beginners-guide-to-webpack-2-and-module-bundling/
+
+
+### Learn Ilia Kantor's screencast 
+
+http://learn.javascript.ru/screencast/webpack
  
 
 ### Add `eslint`
