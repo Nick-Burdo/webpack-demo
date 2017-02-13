@@ -1,8 +1,14 @@
+### Finish article analysis
+
+https://www.sitepoint.com/beginners-guide-to-webpack-2-and-module-bundling/
+ 
+
 ### Add `eslint`
 
 learn https://survivejs.com/webpack/developing-with-webpack/linting/
 
 use https://github.com/MoOx/eslint-loader
+
 
 ### Learn testing
 
