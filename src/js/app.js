@@ -4,11 +4,11 @@
 'use strict';
 import {groupBy} from 'lodash/collection';
 
-import './style.scss';
+import '../scss/style.scss';
 
 import config from './config';
 import people from './people';
-import codeURL from './code.png';
+import codeURL from '../images/code.png';
 
 const managerGroups = groupBy(people, 'manager');
 const root = document.querySelector('#root');
