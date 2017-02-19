@@ -1,0 +1,14 @@
+{
+  "name": "webpack-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Nick-Burdo/webpack-demo.git",
+  "author": "Nick Burdo <n.burdo@iterios.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack"
+  },
+  "devDependencies": {
+    "webpack": "^2.2.1"
+  }
+}
