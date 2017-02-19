@@ -6,9 +6,11 @@
   "author": "Nick Burdo <n.burdo@iterios.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack -w"
+    "start": "webpack"
   },
   "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
     "webpack": "^2.2.1"
   }
 }

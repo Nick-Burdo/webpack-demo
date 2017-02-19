@@ -16,29 +16,73 @@
 $ yarn init -y 
 ```
 
-#### Install `webpack`
+#### Install `webpack` & `webpack babel loader`
 
 ```
 $ yarn add webpack --dev
+$ yarn add babel-core babel-loader --dev
 ```
 
 #### Simple project files
 
 `home.html` - main `html` file (view him in browser)
 `home.js` - main src js file
-`welcome.js` - helper (imported from `home.js`)
+`welcome.js` - external module (imported in the `home.js`)
 
 #### Create `webpack.config.js`
 
 ```
+const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
 
 module.exports = {
-    entry: "./home",
+    entry:  "./home",
     output: {
-        filename: "build.js"
+        filename: "build.js",
+        library:  "home"
+    },
+
+    /* set watch mode for development */
+    watch: NODE_ENV == 'development',
+
+    /* set watch timeout (optional) */
+    watchOptions: {
+        aggregateTimeout: 100
+    },
+
+    /* add source map in development mode */
+    devtool: NODE_ENV == 'development' ? "cheap-inline-module-source-map" : null,
+
+    /* setting of variables that will be available in the source code */
+    plugins: [
+        new webpack.DefinePlugin({
+            NODE_ENV: JSON.stringify(NODE_ENV),
+            LANG:     JSON.stringify('ru')
+        })
+    ],
+
+    /* translate ES6 to ES5 via `babel`
+    module: {
+        loaders: [{
+            test:   /\.js$/,
+            loader: 'babel-loader'
+        }]
     }
 };
+
+/* add Uglify Plugin in production mode */
+if (NODE_ENV == 'production') {
+    module.exports.plugins.push(
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                // don't show unreachable variables etc
+                warnings:     false,
+                drop_console: true,
+                unsafe:       true
+            }
+        })
+    );
+}
 ```
 
 #### Add scripts for `yarn run` command
@@ -51,56 +95,9 @@ Add to the `package.json`:
   },
 ```
 
-#### First build
+#### Build
 
 ```
 $ yarn run start
 ```
 
-#### External access to the modules
-
-If you need to use modules in the document (outside from `home.js`):
-
-1). Add needed module export to the `home.js`
-```
-export {welcome};
-```
-
-2). Add `output.library` attribute to the `webpack.config.js`
-```
-    output: {
-        ...
-        library: "home"
-    }
-```
-
-3). Use module in the document (`home.html`)
-```
-<script>
-    home.welcome('webpack');
-</script>
-```
-
-4). Rebuild project
-```
-$ yarn run start
-```
-
-
-#### Watch for source change
-
-###### Method 1
-
-In the `package.json`:
-```
-  "scripts": {
-    "start": "webpack -w"
-  }
-```
-
-###### Method 2
-
-In the `webpack.config.js`:
-```
-watch: true
-```
