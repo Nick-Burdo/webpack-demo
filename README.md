@@ -57,5 +57,32 @@ Add to the `package.json`:
 $ yarn run start
 ```
 
+#### External access to the modules
 
+If you need to use modules in the document (outside from `home.js`):
+
+1. Add needed module export to the `home.js`
+```
+export {welcome};
+```
+
+2. Add `output.library` attribute to the `webpack.config.js`
+```
+    output: {
+        ...
+        library: "home"
+    }
+```
+
+3. Use module in the document (`home.html`)
+```
+<script>
+    home.welcome('webpack');
+</script>
+```
+
+4. Rebuild project
+```
+$ yarn run start
+```
 

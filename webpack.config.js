@@ -8,6 +8,8 @@ const webpack = require('webpack');
 module.exports = {
     entry: "./home",
     output: {
-        filename: "build.js"
+        filename: "build.js",
+        // If you need to use exported functions in the document outside from home.js file
+        library: "home"
     }
 };
