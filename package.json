@@ -6,7 +6,7 @@
   "author": "Nick Burdo <n.burdo@iterios.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack"
+    "start": "webpack -w"
   },
   "devDependencies": {
     "webpack": "^2.2.1"
